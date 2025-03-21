@@ -1,24 +1,22 @@
-class atm():
-  def __init__(self, balance=1111):
+class BankAccount():
+  def __init__(self, account_number, balance, owner):
+    self.account_number = account_number
     self.balance = balance
-  def deposit(self,amount):
+    self.owner = owner
+  def deposit(self, amount):
     self.balance += amount
-    return f"Deposit: ${amount}\n new Balance:{balance}"
-  def withdraw(self , amount):
-    if amount > self.balance:
-      return f"Insufficient funds! Your balance is ${self.balance}."
-      self.balance -= amount
-      return f"Withdraw: ${amount}\nNew balance: ${self.balance}"
-
+    print(f"${amount} has been depoisted to your account {self.account_number}\n Now the balance is {self.balance}")
+  def withdraw(self,withdraw):
+    if withdraw > self.balance:
+      print("Insufficient funds")
+    else:
+      self.balance -= withdraw
+      print(f"${withdraw} has been withdrawn from your account {self.account_number}\n Now the balance is {self.balance}")
   def check_balance(self):
-    return f"Your current balance: ${self.balance}"
+    print(f"Your current balance is {self.balance}")
 
-# Testing the ATM
-atm = atm()
-
-print("Welcome to the ATM!")
-print(atm.check_balance())  # Initial balance
-print(atm.deposit(500))  # Depositing money
-print(atm.withdraw(700))  # Withdrawing money
-print(atm.withdraw(900))  # Trying to withdraw more than balance
+Hasnain = BankAccount("123456789", 1000, "Hasnain")
+Hasnain.deposit(500)
+Hasnain.withdraw(100)
+Hasnain.check_balance()
 
